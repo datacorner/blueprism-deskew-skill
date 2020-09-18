@@ -42,12 +42,14 @@ Normally you don't have to change anything in the Python code. I know the except
 
 ## The Blue Prism side
 
-The Blue Prism stuff is really easy to manage. 
+The Blue Prism stuff is really easy to deploy and use.
 1. Open the blue Prism Studio and import the bprelease file. One you've done that you should have two new assets: a web service and a vbo (object).
 2. If you've made some change in the Python code like for example changing the URL (or the port) you may need now to do some change in the Blue Prism Web Service definition. Otherwise do not change anything at this stage.
 3. Open the vbo named pyImageUtils
 4. select the run service action (tab) and change the data item command to reflect your environment.
 5. save it
+
+Note: the Blue Prism export is compatible for Blue Prism 6.8 and later.
 
 ## Last check
 
