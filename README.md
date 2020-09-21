@@ -3,6 +3,11 @@ This Blue Prism Skill deskew images by using Python (embedded) Web Service. The 
 This skill does not work alone. It comes with a separate Web Service developped in Python with the deskew library (describred here https://github.com/sbrunner/deskew). The Blue Prism VBO launch (if needed) this web service on the server side and manages the Web services calls to deskew the requested images.
 ![Deskew description](https://raw.githubusercontent.com/datacorner/blueprism-deskew-skill/master/img/bpdeskew.jpg)
 
+# What do you need to make it work properly ?
+This skill works with:
+* A working Python environment (version 3.6 min) with the libraries described in the chapter "The Python side" below
+* Blue Prism version 6.8 (minimum release). A set of dependencies is also needed and described below.
+
 # What's inside this Blue Prism Skill ?
 A global description of how this service was built can be found here : https://www.datacorner.fr/bp-deskew/  
 The Python deskew library features are described in more details here : https://www.datacorner.fr/deskew/  
@@ -43,7 +48,12 @@ Normally you don't have to change anything in the Python code. I know the except
 
 ## The Blue Prism side
 
-The Blue Prism stuff is really easy to deploy and use.
+Firstly you have to ensure that libraries are already imported into Blue Prism before importing this skill :
+* Utility - Environment
+* Utility - JSON
+Note: Good news these vbo are by default provided by Blue Prism (by default in the C:\Program Files\Blue Prism Limited\Blue Prism Automate\VBO). However they're not imported, you have to do the import (or checking if they are already installed) manually by yourself before going further.
+
+Once these vbo are imported successfully, you can import the deskew skill:
 1. Open the blue Prism Studio and import the bprelease file. One you've done that you should have two new assets: a web service and a vbo (object).
 2. If you've made some change in the Python code like for example changing the URL (or the port) you may need now to do some change in the Blue Prism Web Service definition. Otherwise do not change anything at this stage.
 3. Change the Blue Prism environment variable value (for pyRunImageUtilsCommandLine) to refer to the command line path you have copied (in the GitHub bundle this is the runWsImageUtils.bat file) in the Blue Prism Environment variable settings.
@@ -58,7 +68,9 @@ The new skill should work now. Just run the deskew action (in the pyImageUtils o
 
 # in case of troubles
 
-If you have any troubles in using or deploying this skill just put a comment in my website here : https://www.datacorner.fr/bp-deskew/ 
+Please add an issue into Github here : https://github.com/datacorner/blueprism-deskew-skill/issues  
+You can also add a comment in my website here : https://www.datacorner.fr/bp-deskew/  
+
 
 # Terms of use
 
