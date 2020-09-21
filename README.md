@@ -5,7 +5,8 @@ This skill does not work alone. It comes with a separate Web Service developped 
 
 # What's inside this Blue Prism Skill ?
 A global description of how this service was built can be found here : https://www.datacorner.fr/bp-deskew/  
-The Python deskew library features are described in more details here : https://www.datacorner.fr/deskew/
+The Python deskew library features are described in more details here : https://www.datacorner.fr/deskew/  
+This code uses the deskew Python code developped by Stéphane Brunner, just take a look on the code on Github here: https://github.com/sbrunner/deskew
 
 The github directory contains several files:  
 * **ci_rotated.jpg** it's just a test file (rotated image) you could use once you've installed the skill to check it works  
@@ -21,7 +22,7 @@ First you have to install a Python environment. I recommand to install Anaconda 
 One you've installed Python you'll need ton install additional libraries to make the Web Service work. To do that you can use the pip utility or conda if you're working with anaconda. These are the required libraries :
 * numpy (just install by typing in the command line pip install numpy)
 * skimage
-* deskew
+* deskew (Stéphane Brunner: https://github.com/sbrunner/deskew)
 * cv2
 * flask
 * jsonpickle
