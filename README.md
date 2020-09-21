@@ -45,7 +45,7 @@ Normally you don't have to change anything in the Python code. I know the except
 The Blue Prism stuff is really easy to deploy and use.
 1. Open the blue Prism Studio and import the bprelease file. One you've done that you should have two new assets: a web service and a vbo (object).
 2. If you've made some change in the Python code like for example changing the URL (or the port) you may need now to do some change in the Blue Prism Web Service definition. Otherwise do not change anything at this stage.
-3. Change the Blue Prism environment variable (pyRunImageUtilsCommandLine) to refer to the command line path you have copied (in the GitHub bundle this is the runWsImageUtils.bat file)
+3. Change the Blue Prism environment variable value (for pyRunImageUtilsCommandLine) to refer to the command line path you have copied (in the GitHub bundle this is the runWsImageUtils.bat file) in the Blue Prism Environment variable settings.
 4. Open the vbo named pyImageUtils
 5. save it
 
