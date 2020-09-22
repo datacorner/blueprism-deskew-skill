@@ -25,12 +25,12 @@ The sections below describes how to use the Blue Prism skill.
 ## The Python side
 First you have to install a Python environment. I recommand to install Anaconda (https://www.anaconda.com/) or you can just install Python here : https://www.python.org/  
 One you've installed Python you'll need ton install additional libraries to make the Web Service work. To do that you can use the pip utility or conda if you're working with anaconda. These are the required libraries :
-* numpy (just install by typing in the command line pip install numpy)
-* skimage
+* numpy (Numpy | pip install numpy)
+* skimage (Scikit Image | scikit-image)
 * deskew (Stéphane Brunner: https://github.com/sbrunner/deskew)
-* cv2
-* flask
-* jsonpickle
+* cv2 (OpenCV library | pip install opencv-python)
+* flask (Flask | pip install -U Flask)
+* jsonpickle (jsonpickle | pip install jsonpickle)
 
 One all these packages have been sucessfully installed you can start by copying the files (into the Github directory) locally: ie. into a Blue Prism Windows server folder.
 Now, open the **runWsImageUtils.bat** file :
