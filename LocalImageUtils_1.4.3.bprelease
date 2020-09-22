@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <bpr:release xmlns:bpr="http://www.blueprism.co.uk/product/release">
-    <bpr:name>1.4.2</bpr:name>
+    <bpr:name>1.4.3</bpr:name>
     <bpr:release-notes />
-    <bpr:created>2020-09-22 14:12:09Z</bpr:created>
+    <bpr:created>2020-09-22 14:19:34Z</bpr:created>
     <bpr:package-id>12</bpr:package-id>
     <bpr:package-name>WS Image Utils</bpr:package-name>
     <bpr:user-created-by>admin</bpr:user-created-by>
@@ -39,7 +39,7 @@ You will not be able to call this action from a business process, nor will it be
                         </outputparameters>
                     </action>
                     <action id="86" name="deskew" enabled="true" enableRequestOutputParameter="false" disableSendingOfRequest="false">
-                        <description><![CDATA[]]></description>
+                        <description><![CDATA[Deskew a given image (jpg, png, etc.)]]></description>
                         <request httpmethod="POST" urlpath="/deskew?targetfile=[targetfile]">
                             <headers />
                             <bodycontent type="2" fileinputparametername="File" />
@@ -47,7 +47,7 @@ You will not be able to call this action from a business process, nor will it be
                         <parameters>
                             <actionparameter name="targetfile" expose="true" datatype="64">
                                 <initialvalue><![CDATA[]]></initialvalue>
-                                <description><![CDATA[]]></description>
+                                <description><![CDATA[File Path where to save the deskewed image]]></description>
                             </actionparameter>
                         </parameters>
                         <outputparameters>
