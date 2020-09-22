@@ -6,7 +6,7 @@ This skill does not work alone. It comes with a separate Web Service developped 
 # What do you need to make it work properly ?
 This skill works with:
 * A working Python environment (version 3.6 min) with the libraries described in the chapter "The Python side" below
-* Blue Prism version 6.8 (minimum release). A set of dependencies is also needed and described below.
+* Blue Prism version 6.9 (minimum release). A set of dependencies is also needed and described below.
 
 # What's inside this Blue Prism Skill ?
 A global description of how this service was built can be found here : https://www.datacorner.fr/bp-deskew/  
@@ -16,7 +16,7 @@ This code uses the deskew Python code developped by Stéphane Brunner, just take 
 The github directory contains several files:  
 * **ci_rotated.jpg** it's just a test file (rotated image) you could use once you've installed the skill to check it works  
 * **imageutils.py** contains the Python code which deploys the Web service and do the magic stuff !
-* **LocalImagesUtils_X.X.bprelease** Blue Prism Exports (from the version 6.8) of the VBO which harness the Python web service to make easier use of the deskew
+* **LocalImagesUtils_X.X.bprelease** Blue Prism Exports (from the version 6.9) of the VBO which harness the Python web service to make easier use of the deskew
 * **runWsImageUtils.bat** is a windows command which launch the Web Service to make is in listening mode. This command will be called by the vbo when a deskew will be requested.
 
 # How to install this skill ?
@@ -60,7 +60,7 @@ Once these vbo are imported successfully, you can import the deskew skill:
 4. Open the vbo named pyImageUtils
 5. save it
 
-Note: the Blue Prism export is compatible for Blue Prism 6.8 and later.
+Note: the Blue Prism export is compatible for Blue Prism 6.9 and later.
 
 ## Last check
 
