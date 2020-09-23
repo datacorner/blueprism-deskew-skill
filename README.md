@@ -56,6 +56,8 @@ You will need to change 2 things :
 
 Normally you don't have to change anything in the Python code. I know the exception management and other good development stuff is not yet perfect (could it be ?) but i would want it simple and easy to adapt and change. SO don't hesitate to make your modification in there (and share it through Github!).  
 
+If you don't use Anaconda for Python, you could also remove the first line (@CALL C:\Users\admin\Anaconda3\Scripts\activate.bat C:\Users\admin\Anaconda3) from the runWsImageUtils.bat
+
 ## Blue Prism configuration
 
 Firstly you have to ensure that libraries are already imported into Blue Prism before importing this skill :
