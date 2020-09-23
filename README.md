@@ -38,7 +38,8 @@ Now, open the **runWsImageUtils.bat** file :
 This Web service uses Flask to work. So if you're satisfied with this component, don't forget to change some stuff in the code like for example the parameters at the end : app.run(debug=True, host='127.0.0.1', port=8090)
 * Switch to False for the debug mode
 * Change you serveur address (change the Blue Prism WS wrapper also)
-* change you server port (change the Blue Prism WS wrapper also)
+* change you server port (change the Blue Prism WS wrapper also)  
+
 Take a look on the Flask site to see how to deploy in a real production environment : https://flask.palletsprojects.com/en/1.1.x/tutorial/deploy/
 
 ```
