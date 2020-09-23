@@ -1,5 +1,5 @@
 # blueprism-deskew-skill
-This Blue Prism Skill deskew images by using Python (embedded) Web Service. The purpose is pretty simple. If you have any deskewed images like scanned documents this Blue Prism Skill will rotate them automatically to make easier for example the OCR work.  
+This Blue Prism Skill deskew images (and pdf content) by using a Python (embedded) Web Service. The purpose is pretty simple. If you have any deskewed images like scanned documents this Blue Prism Skill will rotate them automatically to make easier for example the OCR work. The images can also be retrieved from a pdf document as this service is able to extract any pages from a pdf document to manage them as image page per page.
 This skill does not work alone. It comes with a separate Web Service developped in Python with the deskew library (describred here https://github.com/sbrunner/deskew). The Blue Prism VBO launch (if needed) this web service on the server side and manages the Web services calls to deskew the requested images.  
 ![Deskew description](https://raw.githubusercontent.com/datacorner/blueprism-deskew-skill/master/img/bpdeskew.jpg)
 
@@ -26,11 +26,14 @@ The sections below describes how to use the Blue Prism skill.
 First you have to install a Python environment. I recommand to install Anaconda (https://www.anaconda.com/) or you can just install Python here : https://www.python.org/  
 One you've installed Python you'll need ton install additional libraries to make the Web Service work. To do that you can use the pip utility or conda if you're working with anaconda. These are the required libraries :
 * numpy (Numpy | pip install numpy)
-* skimage (Scikit Image | scikit-image)
-* deskew (Stéphane Brunner: https://github.com/sbrunner/deskew)
+* skimage (Scikit Image | pip install scikit-image)
+* deskew (Stéphane Brunner: https://github.com/sbrunner/deskew  | pip install deskew)
 * cv2 (OpenCV library | pip install opencv-python)
 * flask (Flask | pip install -U Flask)
 * jsonpickle (jsonpickle | pip install jsonpickle)
+* pdf2image (pdf2image (https://github.com/Belval/pdf2image) | pip install pdf2image)
+
+Note: a windows command file (install_python_packages.cmd) regroups all these libraries installation directives.  
 
 One all these packages have been sucessfully installed you can start by copying the files (into the Github directory) locally: ie. into a Blue Prism Windows server folder.
 Now, open the **runWsImageUtils.bat** file :

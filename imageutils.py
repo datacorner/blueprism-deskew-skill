@@ -81,7 +81,6 @@ def deskew():
         nparr = np.frombuffer(data, np.uint8)
         image = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
         image_out = deskew_image(image)
-        trace("Image output < {0} ... >".format(image_out[0:50]))
         
         cv2.imwrite(targetfile, image_out)
         trace("Save file < {0}  >".format(targetfile))
