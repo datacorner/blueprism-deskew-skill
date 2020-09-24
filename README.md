@@ -31,6 +31,10 @@ One you've installed Python you'll need ton install additional libraries to make
 * cv2 (OpenCV library | pip install opencv-python)
 * flask (Flask | pip install -U Flask)
 * jsonpickle (jsonpickle | pip install jsonpickle)
+For pdf conversion this skill also uses
+* pdf2image ( pip install pdf2image | https://pypi.org/project/pdf2image/)  
+
+Note: Be careful as this last library uses another tier tool (poppler). Just follow the instructions here to install this in your environment : https://pypi.org/project/pdf2image/
 
 One all these packages have been sucessfully installed you can start by copying the files (into the Github directory) locally: ie. into a Blue Prism Windows server folder.
 Now, open the **runWsImageUtils.bat** file :
