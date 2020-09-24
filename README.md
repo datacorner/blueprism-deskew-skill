@@ -1,6 +1,6 @@
 # blueprism-deskew-skill
-This Blue Prism Skill deskew images by using Python (embedded) Web Service. The purpose is pretty simple. If you have any deskewed images like scanned documents this Blue Prism Skill will rotate them automatically to make easier for example the OCR work.  
-This skill does not work alone. It comes with a separate Web Service developped in Python with the deskew library (describred here https://github.com/sbrunner/deskew). The Blue Prism VBO launch (if needed) this web service on the server side and manages the Web services calls to deskew the requested images.
+This Blue Prism Skill deskew images (and pdf content) by using a Python (embedded) Web Service. The purpose is pretty simple. If you have any deskewed images like scanned documents this Blue Prism Skill will rotate them automatically to make easier for example the OCR work. The images can also be retrieved from a pdf document as this service is able to extract any pages from a pdf document to manage them as image page per page.
+This skill does not work alone. It comes with a separate Web Service developped in Python with the deskew library (describred here https://github.com/sbrunner/deskew). The Blue Prism VBO launch (if needed) this web service on the server side and manages the Web services calls to deskew the requested images.  
 ![Deskew description](https://raw.githubusercontent.com/datacorner/blueprism-deskew-skill/master/img/bpdeskew.jpg)
 
 # What do you need to make it work properly ?
@@ -22,12 +22,12 @@ The github directory contains several files:
 # How to install this skill ?
 The sections below describes how to use the Blue Prism skill.
 
-## The Python side
+## Python configuration
 First you have to install a Python environment. I recommand to install Anaconda (https://www.anaconda.com/) or you can just install Python here : https://www.python.org/  
 One you've installed Python you'll need ton install additional libraries to make the Web Service work. To do that you can use the pip utility or conda if you're working with anaconda. These are the required libraries :
 * numpy (Numpy | pip install numpy)
-* skimage (Scikit Image | scikit-image)
-* deskew (Stéphane Brunner: https://github.com/sbrunner/deskew)
+* skimage (Scikit Image | pip install scikit-image)
+* deskew (Stéphane Brunner: https://github.com/sbrunner/deskew  | pip install deskew)
 * cv2 (OpenCV library | pip install opencv-python)
 * flask (Flask | pip install -U Flask)
 * jsonpickle (jsonpickle | pip install jsonpickle)
@@ -36,8 +36,17 @@ For pdf conversion this skill also uses
 
 Note: Be careful as this last library uses another tier tool (poppler). Just follow the instructions here to install this in your environment : https://pypi.org/project/pdf2image/
 
+Note: a windows command file (install_python_packages.cmd) regroups all these libraries installation directives.  
+
 One all these packages have been sucessfully installed you can start by copying the files (into the Github directory) locally: ie. into a Blue Prism Windows server folder.
 Now, open the **runWsImageUtils.bat** file :
+
+This Web service uses Flask to work. So if you're satisfied with this component, don't forget to change some stuff in the code like for example the parameters at the end : app.run(debug=True, host='127.0.0.1', port=8090)
+* Switch to False for the debug mode
+* Change you serveur address (change the Blue Prism WS wrapper also)
+* change you server port (change the Blue Prism WS wrapper also)  
+
+Take a look on the Flask site to see how to deploy in a real production environment : https://flask.palletsprojects.com/en/1.1.x/tutorial/deploy/
 
 ```
 @CALL C:\Users\admin\Anaconda3\Scripts\activate.bat C:\Users\admin\Anaconda3
@@ -48,9 +57,11 @@ You will need to change 2 things :
 1. Change the anaconda directory to reflect your Python environment.  
 2. Change the directory to reflect where you had copied the files previously.  
 
-Normally you don't have to change anything in the Python code. I know the exception management and other good developer stuff is not yet done but i would want it simple and easy to adapt and change. SO don't hesitate to make your modification in there (and share it through Github!).  
+Normally you don't have to change anything in the Python code. I know the exception management and other good development stuff is not yet perfect (could it be ?) but i would want it simple and easy to adapt and change. SO don't hesitate to make your modification in there (and share it through Github!).  
 
-## The Blue Prism side
+If you don't use Anaconda for Python, you could also remove the first line (@CALL C:\Users\admin\Anaconda3\Scripts\activate.bat C:\Users\admin\Anaconda3) from the runWsImageUtils.bat
+
+## Blue Prism configuration
 
 Firstly you have to ensure that libraries are already imported into Blue Prism before importing this skill :
 * Utility - Environment
@@ -74,7 +85,6 @@ The new skill should work now. Just run the deskew action (in the pyImageUtils o
 
 Please add an issue into Github here : https://github.com/datacorner/blueprism-deskew-skill/issues  
 You can also add a comment in my website here : https://www.datacorner.fr/bp-deskew/  
-
 
 # Terms of use
 
