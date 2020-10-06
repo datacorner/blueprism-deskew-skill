@@ -3,6 +3,8 @@ This Blue Prism Skill deskew images (and pdf content) by using a Python (embedde
 This skill does not work alone. It comes with a separate Web Service developped in Python with the deskew library (describred here https://github.com/sbrunner/deskew). The Blue Prism VBO launch (if needed) this web service on the server side and manages the Web services calls to deskew the requested images.  
 ![Deskew description](https://raw.githubusercontent.com/datacorner/blueprism-deskew-skill/master/img/bpdeskew.jpg)
 
+Take a look on this video to see how this skill works : https://www.youtube.com/watch?v=y4KCzo0U46I
+
 # What do you need to make it work properly ?
 This skill works with:
 * A working Python environment (version 3.6 min) with the libraries described in the chapter "The Python side" below
