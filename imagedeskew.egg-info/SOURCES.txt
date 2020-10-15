@@ -1,0 +1,9 @@
+README.md
+setup.py
+imagedeskew.egg-info/PKG-INFO
+imagedeskew.egg-info/SOURCES.txt
+imagedeskew.egg-info/dependency_links.txt
+imagedeskew.egg-info/top_level.txt
+src/__init__.py
+src/ext_deskew.py
+src/imageutils.py

@@ -4,7 +4,7 @@ import sys
 from skimage import io
 from skimage.transform import rotate
 from skimage.color import rgb2gray
-from deskew import determine_skew
+from ext_deskew import determine_skew
 import jsonpickle
 import cv2
 from flask import Flask, request, Response
@@ -81,6 +81,7 @@ def deskew():
         nparr = np.frombuffer(data, np.uint8)
         image = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
         image_out = deskew_image(image)
+        trace("Image output < {0} ... >".format(image_out[0:50]))
         
         cv2.imwrite(targetfile, image_out)
         trace("Save file < {0}  >".format(targetfile))
@@ -155,7 +156,7 @@ def deskewpdf():
         output['status'] = "Saved"
         # Prepare response, encode JSON to return
         response_pickled = jsonpickle.encode(output)
-    except:
+    except: 
         print("Unexpected error:", sys.exc_info()[0])
         response_pickled = "{'status' : 'Error while deskewing image' }"
 

@@ -1,9 +1,9 @@
 # blueprism-deskew-skill
 This Blue Prism Skill deskew images (and pdf content) by using a Python (embedded) Web Service. The purpose is pretty simple. If you have any deskewed images like scanned documents this Blue Prism Skill will rotate them automatically to make easier for example the OCR work. The images can also be retrieved from a pdf document as this service is able to extract any pages from a pdf document to manage them as image page per page.
-This skill does not work alone. It comes with a separate Web Service developped in Python with the deskew library (describred here https://github.com/sbrunner/deskew). The Blue Prism VBO launch (if needed) this web service on the server side and manages the Web services calls to deskew the requested images.  
+This skill does not work alone as it comes with a separate Web Service developped in Python. The Blue Prism VBO launch (if needed) this web service on the server side and manages the Web services calls to deskew the requested images. In production you should deploy this web service in a separate server (see documentation to use another web server provider as flask to do that). 
 ![Deskew description](https://raw.githubusercontent.com/datacorner/blueprism-deskew-skill/master/img/bpdeskew.jpg)
 
-Take a look on this video to see how this skill works : https://www.youtube.com/watch?v=y4KCzo0U46I
+To have a better understanding on what this skill do, just have a look on this video : https://www.youtube.com/watch?v=y4KCzo0U46I
 
 # What do you need to make it work properly ?
 This skill works with:
@@ -13,13 +13,14 @@ This skill works with:
 # What's inside this Blue Prism Skill ?
 A global description of how this service was built can be found here : https://www.datacorner.fr/bp-deskew/  
 The Python deskew library features are described in more details here : https://www.datacorner.fr/deskew/  
-This code uses the deskew Python code developped by Stéphane Brunner, just take a look on the code on Github here: https://github.com/sbrunner/deskew
+NB: This code uses the deskew Python code developped by Stéphane Brunner, just take a look on the code on Github here: https://github.com/sbrunner/deskew
 
 The github directory contains several files:  
-* **ci_rotated.jpg** it's just a test file (rotated image) you could use once you've installed the skill to check it works  
-* **imageutils.py** contains the Python code which deploys the Web service and do the magic stuff !
+* **./img/ci_rotated.jpg** it's just a test file (rotated image) you could use once you've installed the skill to check it works  
+* **./src folder** contains all the Python code which runs the Web service and do the magic stuff !
 * **LocalImagesUtils_X.X.bprelease** Blue Prism Exports (from the version 6.9) of the VBO which harness the Python web service to make easier use of the deskew
 * **runWsImageUtils.bat** is a windows command which launch the Web Service to make is in listening mode. This command will be called by the vbo when a deskew will be requested.
+* **install_python_packages.cmd** is a windows command which install all the needed python dependencies (by using pip)
 
 # How to install this skill ?
 The sections below describes how to use the Blue Prism skill.
@@ -29,7 +30,6 @@ First you have to install a Python environment. I recommand to install Anaconda 
 One you've installed Python you'll need ton install additional libraries to make the Web Service work. To do that you can use the pip utility or conda if you're working with anaconda. These are the required libraries :
 * numpy (Numpy | pip install numpy)
 * skimage (Scikit Image | pip install scikit-image)
-* deskew (Stéphane Brunner: https://github.com/sbrunner/deskew  | pip install deskew)
 * cv2 (OpenCV library | pip install opencv-python)
 * flask (Flask | pip install -U Flask)
 * jsonpickle (jsonpickle | pip install jsonpickle)
@@ -37,8 +37,7 @@ For pdf conversion this skill also uses
 * pdf2image ( pip install pdf2image | https://pypi.org/project/pdf2image/)  
 
 Note: Be careful as this last library uses another tier tool (poppler). Just follow the instructions here to install this in your environment : https://pypi.org/project/pdf2image/
-
-Note: a windows command file (install_python_packages.cmd) regroups all these libraries installation directives.  
+Note (2): a windows command file (install_python_packages.cmd) regroups all these libraries installation directives.  
 
 One all these packages have been sucessfully installed you can start by copying the files (into the Github directory) locally: ie. into a Blue Prism Windows server folder.
 Now, open the **runWsImageUtils.bat** file :
@@ -56,8 +55,8 @@ python "C:\BP Assets\services\imageutils\imageutils.py"
 ```
 
 You will need to change 2 things :
-1. Change the anaconda directory to reflect your Python environment.  
-2. Change the directory to reflect where you had copied the files previously.  
+Line 1 (only if you use Anaconda, otherwise just remove the line). Change the anaconda directory to reflect your Python environment.  
+Line 2. Change the directory to reflect where you had copied the files previously.  
 
 Normally you don't have to change anything in the Python code. I know the exception management and other good development stuff is not yet perfect (could it be ?) but i would want it simple and easy to adapt and change. SO don't hesitate to make your modification in there (and share it through Github!).  
 
@@ -65,7 +64,7 @@ If you don't use Anaconda for Python, you could also remove the first line (@CAL
 
 ## Blue Prism configuration
 
-Firstly you have to ensure that libraries are already imported into Blue Prism before importing this skill :
+First you have to ensure that libraries are already imported into Blue Prism before importing this skill :
 * Utility - Environment
 * Utility - JSON
 Note: Good news these vbo are by default provided by Blue Prism (by default in the C:\Program Files\Blue Prism Limited\Blue Prism Automate\VBO). However they're not imported, you have to do the import (or checking if they are already installed) manually by yourself before going further.
