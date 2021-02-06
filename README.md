@@ -13,7 +13,7 @@ This skill works with:
 # What's inside this Blue Prism Skill ?
 A global description of how this service was built can be found here : https://www.datacorner.fr/bp-deskew/  
 The Python deskew library features are described in more details here : https://www.datacorner.fr/deskew/  
-NB: This code uses the deskew Python code developped by Stéphane Brunner, just take a look on the code on Github here: https://github.com/sbrunner/deskew
+NB: This code uses the deskew Python code developped by Stï¿½phane Brunner, just take a look on the code on Github here: https://github.com/sbrunner/deskew
 
 The github directory contains several files:  
 * **./img/ci_rotated.jpg** it's just a test file (rotated image) you could use once you've installed the skill to check it works  
@@ -35,6 +35,11 @@ One you've installed Python you'll need ton install additional libraries to make
 * jsonpickle (jsonpickle | pip install jsonpickle)
 For pdf conversion this skill also uses
 * pdf2image ( pip install pdf2image | https://pypi.org/project/pdf2image/)  
+
+You can install all the dependencies by running this command line:  
+```
+$ pip3 install -r requirements.txt
+```
 
 Note: Be careful as this last library uses another tier tool (poppler). Just follow the instructions here to install this in your environment : https://pypi.org/project/pdf2image/
 Note (2): a windows command file (install_python_packages.cmd) regroups all these libraries installation directives.  
